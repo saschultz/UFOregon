@@ -6,7 +6,8 @@ gem "sinatra-activerecord"
 gem "rake"
 gem "pg"
 gem "sinatra"
-gem "google_maps_service"
+# gem "google_maps_service"
+gem "static-gmaps"
 
 group :test do
   gem "rspec"
