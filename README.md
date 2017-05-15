@@ -16,7 +16,7 @@ As a user, I want to see a map of Oregon.
 As a user, I want to see a symbol to show the location of a UFO sighting in Oregon.
 As a user, I want to be able to sort how the data is displayed by year, location, and shape.
 
-- Stretch Goals
+- Stretch Goal:
 As a user, I want to be able to click the symbol to display more info about that specific sighting.
 
 ## Specifications
