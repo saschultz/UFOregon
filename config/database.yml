@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: uforegon_development
+test:
+  adapter: postgresql
+  database: uforegon_test
