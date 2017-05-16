@@ -1,6 +1,9 @@
 development:
   adapter: postgresql
-  database: uforegon_development
+  database: sightings_development
+
 test:
   adapter: postgresql
-  database: uforegon_test
+  database: sightings_test
+
+

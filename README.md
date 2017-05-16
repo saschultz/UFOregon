@@ -1,5 +1,5 @@
 # UFOregon
-
+![](https://media.giphy.com/media/VbmYpyiGXt2AU/giphy.gif)
 <!--PROJECT DESCRIPTION HERE-->
 
 ### Prerequisites
