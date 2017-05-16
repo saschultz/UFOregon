@@ -1,10 +1,32 @@
 <h1>Sightings in Oregon</h1>
 
+<div class="row">
+  <div class="col-xs-4">
+    <h3>buttons</h3>
+    <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
+  </div>
+  <div class="col-xs-4">
+    <h3>middle col</h3>
+  </div>
+  <div class="col-xs-4">
+    <h3>test area</h3>
+    <div>
+      <p>Ruby code: </p><p id="json_test"><%=@ruby_hash.to_json%></p>
+    </div>
+    <div>
+      <p>Javascript got: </p><p id="output_hash"></p>
+    </div>
+  </div>
+</div>
+<hr>
 
-<div id="map"></div>
+
+<div id="map_super">
+  <div id="map"></div>
+</div>
 <!-- Replace the value of the key parameter with your own API key. -->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>&callback=initMap">
-</script>
 
-<%#binding.pry%>
+<div id="map_script"></div>
+
+<script  async defer src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>&callback=initMap">
+</script>

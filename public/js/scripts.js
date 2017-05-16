@@ -1,7 +1,9 @@
+/////////////////
+// BACK END
+////////////////
 
 //// this initMap is a 'callback' fucntion attached to the end of the URL on index.erb
 function initMap() {
-
   // Oregon cities only
   var Cities = {
     adair: {lat: 44.67, lng: -123.22},
@@ -20,21 +22,17 @@ function initMap() {
     albertLake: {lat: 43.45, lng: -119.14},
     alfalfa: {lat: 44.08, lng: -121.01}
     //   : {lat: , lng: };
-  };
-
+  }
   // creates a new google maps object and centers on a area
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
     center: {lat: 44.06, lng: -121.32}
   });
-
   // adds the coordinates for each city into an array
   coords = [];
   for (var key in Cities) {
-    console.log("key:", Cities[key])
     coords.push(Cities[key]);
   };
-
   // places each marker for the city
   for (var city in coords) {
     coord = coords[city];
@@ -43,9 +41,21 @@ function initMap() {
       map: map
     });
   }
+}
 
-} //// END INITMAP
+//////////////////////
+// FRONT END
+/////////////////////
+$(document).ready(function() {
 
+  test_hash = {};
+  test_hash = $("#json_test").text();
+  $("#output_hash").append(test_hash);
+  console.log(test_hash)
 
-//  injections = <%= @injections.to_json %>;
-//  medicines = <%= @medicines.to_json %>;
+  $("#toggle_map").click(function(){
+    $("#map_super").toggleClass("hide");
+    console.log("toggled");
+  });
+
+});
