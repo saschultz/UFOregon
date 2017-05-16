@@ -5,3 +5,5 @@ development:
 test:
   adapter: postgresql
   database: sightings_test
+
+
