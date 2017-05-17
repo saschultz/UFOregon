@@ -47,6 +47,9 @@ body {
   font-size: 13px;
   letter-spacing: 4px;
 }
+.btn-info:hover {
+  background-color: #a56a5f;
+}
 
 #ufo {
   color: #B0766D;
@@ -68,18 +71,15 @@ body {
 
 /* scrollable window */
 #dialog-window {
-   height: 200px;
-   border: 2px black solid;
+  color: black;
+  background-color: rgba(0,0,0,0.5)
+  height: 300px;
+  padding-left: 200px;
+  padding-right: 200px;
+  opacity: 1;
  }
-
  #scrollable-content {
-   height: 180px;
+   height: 200px;
    overflow: auto;
-   background-color: lightgrey;
+   background-color: none;
  }
-
- #footer {
-   height: 20px;
-   background-color: lightgrey;
- }
-/* scrollable window */
