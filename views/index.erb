@@ -3,36 +3,26 @@
 <div class="row">
   <div class="col-xs-4">
     <h3>buttons</h3>
-    <button id="toggle_map" class="btn" name="toggle_map">Show/Hide map</button>
-    <br>
-    <br>
 
-    <button id="run_map" class="btn">Map it!</button>
+    <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
 
   </div>
   <div class="col-xs-4">
     <h3>Selects</h3>
-    <!-- <form action="/get_cities" method="post">
-      <div class="checkbox">
-        <label><input type="checkbox" name="cities[]" value="Portland">Portland</label>
-        <label><input type="checkbox" name="cities[]" value="Bend">Bend</label>
-        <label><input type="checkbox" name="cities[]" value="Eugene">Eugene</label>
-      </div>
-      <button class="btn btn-info btn-sm" type="submit">Submit</button>
-    </form> -->
     <form action="/get_city" method="post">
         <label>Find by city:</label>
         <input type="text" name="city_name" placeholder="city"></input>
-        <button class="btn" type="submit">Submit</button>
+        <button class="btn btn-info btn-sm" type="submit">Find City info</button>
     </form>
-
+    <br>
+    <br>
+    <button id="map_it" class="btn btn-success btn-sm">Map it!</button>
   </div>
   <div class="col-xs-4">
-    <h3>test area</h3>
-    <h4>Number of sightings found: <%= @results_total %></h4>
-    <h4>Number of unique cities found: <% @unique_cities_total %></h4>
-    <h4>City lat: <%= @city_lat %></h4>
-    <h4>City lng: <%= @city_lng %></h4>
+    <h3>Your Query results:</h3>
+    <h4>Sightings found: <%= @results_total %></h4>
+    <h4>City latitude: <%= Info.get_lat %></h4>
+    <h4>City longitude: <%= Info.get_lng %></h4>
   </div>
 </div>
 
@@ -47,3 +37,16 @@
 
 <!-- <script  async defer src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>&callback=initMap">
 </script> -->
+
+<div id="dialog-window">
+
+  <div id="scrollable-content">
+    <ul>
+      <li><p id="report"></p></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+  </div>
+
+</div>
