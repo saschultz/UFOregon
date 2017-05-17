@@ -5,32 +5,41 @@ require 'pry'
 Bundler.require :default
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-Info.save_lat(0)
-Info.save_lng(0)
 
 get("/") do
+  # reset
+  Info.save_lat(0)
+  Info.save_lng(0)
+  Info.save_city("")
+  Info.save_total(0)
+  Info.save_rep([])
   erb(:index)
 end
 
 get('/ruby_data') do
   # data to be passed to javascript
   if (Info.get_lat != 0)
-    [{lat: Info.get_lat,lng: Info.get_lng}].to_json
+    [{lat: Info.get_lat,lng: Info.get_lng, rep: Info.get_rep}].to_json
   else
-    [{lat: 44.06, lng: -121.32}].to_json
+    [{lat: 44.06, lng: -121.32, rep: "none"}].to_json
   end
 end
 
 post('/get_city') do
-  city_name = params.fetch('city_name')
-  found_sightings = []
-  result = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{city_name}';")
-  found_sightings.push(result)
-  @results_total = result.count
-  # returns a single record for city_name
-  single_city_record = Ufo.find_by(city: city_name)
+  Info.save_city(params.fetch('city_name'))
+  found_rows_arr = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{Info.get_city}';")
+  Info.save_total(found_rows_arr.count)
+  # returns a single record for city to display correct map marker
+  single_city_record = Ufo.find_by(city: Info.get_city)
   Info.save_lat(single_city_record['latitude'])
   Info.save_lng(single_city_record['longitude'])
+  # extract all the sighting reports
+  summaries = []
+  result = Ufo.where(["city = ?", Info.get_city])
+  result.each do |row|
+    summaries.push(row['summary'])
+  end
+  Info.save_rep(summaries)
   erb(:index)
 end
 

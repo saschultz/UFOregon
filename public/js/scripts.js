@@ -90,6 +90,7 @@ var google_styles = [
 
 //// this initMap is a 'callback' fucntion attached to the end of the URL on index.erb
 function initMap(queryData) {
+  console.log("queryData: " , queryData);
   // creates a new google maps object and centers on a area
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
@@ -135,11 +136,11 @@ $(document).ready(function() {
     console.log("toggle_map clicked");
   });
 
-  // // AJAX get request - to refresh the map
-  // $.get("/ruby_data", function(ruby_data) {
-  //   parsed_data = JSON.parse(ruby_data);
-  //   initMap(parsed_data);
-  // });
+  // AJAX get request - to refresh the map
+  $.get("/ruby_data", function(ruby_data) {
+    parsed_data = JSON.parse(ruby_data);
+    initMap(parsed_data);
+  });
 
   $("#map_it").click(function() {
     // AJAX get request
