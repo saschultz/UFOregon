@@ -1,4 +1,48 @@
+body {
+  color: white;
+  font-family: 'Ubuntu Mono', monospace; like this one actually
+}
 
+#background-image {
+  background-image: url('../img/background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.jumbotron {
+  background: rgba(0,0,0,0.2);
+  /*background-color: black;*/
+  /*font-family: 'Averia Sans Libre', cursive;*/
+  /*opacity: 0.2;*/
+  /*font-family: 'Exo', sans-serif;*/
+  /*font-family: 'Unica One', cursive; kinda like*/
+  /*font-family: 'Walter Turncoat', cursive; for summaries*/
+  color: white;
+  /*font-weight: bolder;*/
+  text-align: center;
+
+
+  /*font-family: 'Syncopate', sans-serif;*/
+  font-family: 'Nova Mono', monospace;
+  /*font-family: 'Codystar', cursive;*/
+  font-size: 90px;
+  letter-spacing: 23px;
+}
+.btn {
+  background-color: #B7877F;
+  font-size: 13px;
+  letter-spacing: 4px;
+}
+
+#ufo {
+  color: #B0766D;
+}
 #map {
   height: 600px;
   width: 100%;

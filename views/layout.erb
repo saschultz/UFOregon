@@ -4,15 +4,16 @@
     <title>UFOregon</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link  rel='stylesheet' href="/css/styles.css" >
+    <link href="https://fonts.googleapis.com/css?family=Averia+Sans+Libre|Codystar|Exo|Nova+Mono|Russo+One|Syncopate|Ubuntu+Mono|Unica+One|Walter+Turncoat" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
   </head>
   <body>
-    <div class="container">
     <div class="jumbotron">
-      <h1>UFOregon</h1>
+      <h1 id="title"><span id='ufo'>UFO</span>regon</h1>
     </div>
-    <hr>
+    <div id="background-image"></div>
+    <div class="container">
       <%= yield %>
     </div>
   </body>
