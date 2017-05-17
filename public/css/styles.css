@@ -38,6 +38,10 @@ body {
   font-size: 90px;
   letter-spacing: 23px;
 }
+
+#sub-header {
+  text-align: center;
+}
 .btn {
   background-color: #B7877F;
   font-size: 13px;

@@ -99,11 +99,14 @@ function initMap(queryData) {
       });
 
   // places each marker for the city
+  var ufo = './img/ufo_marker_eerie.png'
   queryData.forEach(function(hash_obj) {
     var coord = new google.maps.LatLng(hash_obj['lat'],hash_obj['lng']);
     // coord = {lat: hash_obj['lat'],lng: hash_obj['lng']};
     marker = new google.maps.Marker({
       position: coord,
+      animation: google.maps.Animation.DROP,
+      icon: ufo,
       map: map
     });
   });
