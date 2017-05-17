@@ -10,29 +10,8 @@ function initMap(myData) {
     center: {lat: 44.06, lng: -121.32}
   });
 
-  // Oregon cities only
-  // var Cities = {
-  //   adair: {lat: 44.67, lng: -123.22},
-  //   adrian: {lat: 43.74, lng: -117.07},
-  //   albany: {lat: 44.63, lng: -123.10},
-  //   aloha: {lat: 45.50, lng: -122.87},
-  //   alsea: {lat: 44.38, lng: -123.60},
-  //   alvadore: {lat: 44.13, lng: -123.26},
-  //   alvord: {lat: 42.54, lng: -118.46},
-  //   amity: {lat: 45.12, lng: -123.21},
-  //   beaverton: {lat: 45.49, lng: -122.80},
-  //   bend: {lat: 44.06, lng: -121.32},
-  //   eugene: {lat: 44.05, lng: -123.08},
-  //   hillsboro: {lat: 45.52, lng: -122.99},
-  //   portland: {lat: 45.52, lng: -122.68},
-  //   albertLake: {lat: 43.45, lng: -119.14},
-  //   alfalfa: {lat: 44.08, lng: -121.01}
-  //   //   : {lat: , lng: };
-  // }
-
   // places each marker for the city
   myData.forEach(function(hash_obj) {
-    // console.log("coord" , stuff);
     coord = {lat: hash_obj['lat'],lng: hash_obj['lng']};
     marker = new google.maps.Marker({
       position: coord,
@@ -41,30 +20,26 @@ function initMap(myData) {
   });
 }
 
-function removeQuotes(data) {
-  clean_arr = data.replace(/"/g,"");
-  return clean_arr;
-}
-
 
 ///////////////////
 // FRONT END
 ///////////////////
 $(document).ready(function() {
 
-  test_hash = {};
   test_hash = $("#json_test1").text();
 
-
-  $("#output_hash").append(test_hash);
-  console.log(test_hash)
-
-  $("#toggle_map").click(function(){
+  $("#toggle_map").click(function() {
     $("#map_super").toggleClass("hide");
     console.log("toggle_map clicked");
   });
 
-  $("#run_map").click(function(){
+  $.get("/ruby_data", function(ruby_data) {
+    parsed_data = JSON.parse(ruby_data);
+    initMap(parsed_data);
+  });
+
+  $("#run_map").click(function() {
+    // AJAX get request
     $.get("/ruby_data", function(ruby_data) {
       parsed_data = JSON.parse(ruby_data);
       initMap(parsed_data);

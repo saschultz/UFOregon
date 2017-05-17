@@ -1,27 +1,36 @@
 <h1>Sightings in Oregon</h1>
 
-<div id="ajax_test"></div>
-
 <div class="row">
   <div class="col-xs-4">
     <h3>buttons</h3>
     <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
     <br>
+    <br>
     <button id="run_map" class="btn btn-success btn-sm">Map it!</button>
   </div>
   <div class="col-xs-4">
-    <h3>middle col</h3>
+    <h3>Selects</h3>
+    <!-- <form action="/get_cities" method="post">
+      <div class="checkbox">
+        <label><input type="checkbox" name="cities[]" value="Portland">Portland</label>
+        <label><input type="checkbox" name="cities[]" value="Bend">Bend</label>
+        <label><input type="checkbox" name="cities[]" value="Eugene">Eugene</label>
+      </div>
+      <button class="btn btn-info btn-sm" type="submit">Submit</button>
+    </form> -->
+    <form action="/get_city" method="post">
+        <label>Find by city:</label>
+        <input type="text" name="city_name" placeholder="city"></input>
+        <button class="btn btn-info btn-sm" type="submit">Submit</button>
+    </form>
+
   </div>
   <div class="col-xs-4">
     <h3>test area</h3>
-    <div>
-      <p>Ruby code: </p><p id="json_test1"><%=@ruby_hash.to_json%></p>
-      <p>json out: </p>
-      <div id="json_out"></div>
-    </div>
-    <div>
-      <p>Javascript got: </p><p id="output_hash"></p>
-    </div>
+    <h4>Number of sightings found: <%= @results_total %></h4>
+    <h4>Number of unique cities found: <% @unique_cities_total %></h4>
+    <h4>City lat: <%= @city_lat %></h4>
+    <h4>City lng: <%= @city_lng %></h4>
   </div>
 </div>
 <hr>
