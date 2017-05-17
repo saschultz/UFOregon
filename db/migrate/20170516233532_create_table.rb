@@ -1,4 +1,4 @@
-class Tables < ActiveRecord::Migration[5.1]
+class CreateTable < ActiveRecord::Migration[5.1]
   def change
     create_table(:ufos) do |t|
       t.column(:sight_date, :text)
@@ -7,9 +7,8 @@ class Tables < ActiveRecord::Migration[5.1]
       t.column(:shape, :text)
       t.column(:duration, :text)
       t.column(:summary, :text)
-      t.column(:post_date, :text)
-      t.column(:junk, :text)
-      t.column(:junk1, :text)
+      t.column(:latitude, :text)
+      t.column(:longitude, :text)
     end
   end
 end
