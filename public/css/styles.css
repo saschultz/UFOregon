@@ -3,6 +3,10 @@ body {
   font-family: 'Ubuntu Mono', monospace; like this one actually
 }
 
+.blk_text {
+  color: black;
+}
+
 #background-image {
   background-image: url('../img/background.jpeg');
   background-repeat: no-repeat;
