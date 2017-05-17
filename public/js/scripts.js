@@ -3,7 +3,7 @@
 ////////////////
 
 //// this initMap is a 'callback' fucntion attached to the end of the URL on index.erb
-function initMap(myData) {
+function initMap(queryData) {
   // creates a new google maps object and centers on a area
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
@@ -11,13 +11,28 @@ function initMap(myData) {
   });
 
   // places each marker for the city
-  myData.forEach(function(hash_obj) {
+  queryData.forEach(function(hash_obj) {
     var coord = new google.maps.LatLng(hash_obj['lat'],hash_obj['lng']);
     // coord = {lat: hash_obj['lat'],lng: hash_obj['lng']};
     marker = new google.maps.Marker({
       position: coord,
       map: map
     });
+  });
+
+  // You can use a LatLng literal in place of a google.maps.LatLng object when
+  // creating the Marker object. Once the Marker object is instantiated, its
+  // position will be available as a google.maps.LatLng object. In this case,
+  // we retrieve the marker's position using the
+  // google.maps.LatLng.getPosition() method.
+  var infowindow = new google.maps.InfoWindow({
+    // example of lattitude and longitude (use <br> after each line to had more 'content')
+    // content: '<p>Marker Location:' + marker.getPosition() + '</p><br>' +
+    content: '<p>location from database: (' + 'Lat: ' + queryData[0]['lat'] + ' Lng: ' + queryData[0]['lng'] + ')<p>'
+  });
+
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    infowindow.open(map, marker, queryData);
   });
 }
 

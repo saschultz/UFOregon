@@ -11,3 +11,23 @@
  .opacity {
     opacity: 0;
  }
+
+
+
+/* scrollable window */
+#dialog-window {
+   height: 200px;
+   border: 2px black solid;
+ }
+
+ #scrollable-content {
+   height: 180px;
+   overflow: auto;
+   background-color: lightgrey;
+ }
+
+ #footer {
+   height: 20px;
+   background-color: lightgrey;
+ }
+/* scrollable window */
