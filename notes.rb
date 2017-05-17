@@ -29,4 +29,7 @@ rake db:create
 rake db:migrate
 rake db:test:prepare
 ##in psql \c to oregon_sightings_development:
-COPY ufos(sight_date, city, state, shape, duration, summary, latitude, longitude) FROM '/Users/Guest/Desktop/UFOregon/raw_data/oregon_sightings_latlong.csv' DELIMITER ',' CSV;
+
+COPY ufos(sight_date, city, state, shape, duration, summary, latitude, longitude) FROM '/Users/Guest/Desktop/UFOregon/raw_data/oregon_year_latlong.csv' DELIMITER ',' CSV;
+
+

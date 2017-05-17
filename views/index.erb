@@ -3,10 +3,12 @@
 <div class="row">
   <div class="col-xs-4">
     <h3>buttons</h3>
-    <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
+    <button id="toggle_map" class="btn" name="toggle_map">Show/Hide map</button>
     <br>
     <br>
-    <button id="map_it" class="btn btn-success btn-sm">Map it!</button>
+
+    <button id="run_map" class="btn">Map it!</button>
+
   </div>
   <div class="col-xs-4">
     <h3>Selects</h3>
@@ -21,7 +23,7 @@
     <form action="/get_city" method="post">
         <label>Find by city:</label>
         <input type="text" name="city_name" placeholder="city"></input>
-        <button class="btn btn-info btn-sm" type="submit">Submit</button>
+        <button class="btn" type="submit">Submit</button>
     </form>
 
   </div>
@@ -33,10 +35,10 @@
     <h4>City lng: <%= @city_lng %></h4>
   </div>
 </div>
-<hr>
 
 <div id="map_super">
   <div id="map"></div>
+
   <!-- Replace the value of the key parameter with your own API key. -->
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=Keys.js_base%>"></script>
 </div>
