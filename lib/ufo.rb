@@ -1,5 +1,5 @@
 class Ufo < ActiveRecord::Base
-  
+
 end
 
 
@@ -13,6 +13,7 @@ end
 module Info
   @@lat = 0
   @@lng = 0
+  @@reports = []
 
   def Info.get_lat
     @@lat
@@ -26,4 +27,12 @@ module Info
   def Info.save_lng(num)
     @@lng = num
   end
+
+  def Info.save_rep(arr)
+    @@reports = arr
+  end
+  def Info.get_rep(arr)
+    @@reports = arr
+  end
+
 end

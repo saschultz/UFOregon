@@ -115,7 +115,7 @@ function initMap(queryData) {
   var infowindow = new google.maps.InfoWindow({
     // example of lattitude and longitude (use <br> after each line to had more 'content')
     // content: '<p>Marker Location:' + marker.getPosition() + '</p><br>' +
-    content: '<p>location from database: (' + 'Lat: ' + queryData[0]['lat'] + ' Lng: ' + queryData[0]['lng'] + ')<p>'
+    content: '<p class="blk_text">location from database: (' + 'Lat: ' + queryData[0]['lat'] + ' Lng: ' + queryData[0]['lng'] + ')<p>'
   });
 
   google.maps.event.addListener(marker, 'mouseover', function() {
