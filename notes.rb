@@ -1,5 +1,3 @@
-#--Oregon sightings with lat/long--setup instructions--#
-
 ##in config<database.yml:
 development:
   adapter: postgresql

@@ -4,3 +4,25 @@
 
 <%#STATIC MAP EXAMPLE using static map gem%>
 <img  src="https://maps.googleapis.com/maps/api/staticmap?center=Australia&size=640x400&style=element:labels|visibility:off&style=element:geometry.stroke|visibility:off&style=feature:landscape|element:geometry|saturation:-100&style=feature:water|saturation:-100|invert_lightness:true&key=<%=@key_main%>">
+
+
+
+myHash = Hash.new({'adair' => {lat: 44.67, lng: -123.22}, 'adrian' => {lat: 43.74, lng: -117.07}, 'albany' => {lat: 44.63, lng: -123.10} })
+
+
+
+
+
+Require the JSON library, and use to_json.
+
+require 'json'
+tempHash = {
+    "key_a" => "val_a",
+    "key_b" => "val_b"
+}
+File.open("public/temp.json","w") do |f|
+  f.write(tempHash.to_json)
+end
+
+Your temp.json file now looks like:
+{"key_a":"val_a","key_b":"val_b"}
