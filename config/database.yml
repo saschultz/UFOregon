@@ -1,15 +1,7 @@
 development:
   adapter: postgresql
-  database: sightings_development
+  database: oregon_sightings_development
 
 test:
   adapter: postgresql
-  database: sightings_test
-
-development:
-  adapter: postgresql
-  database: world_sightings_development
-
-test:
-  adapter: postgresql
-  database: world_sightings_test
+  database: oregon_sightings_test

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516163715) do
+ActiveRecord::Schema.define(version: 20170516233532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,17 +20,6 @@ ActiveRecord::Schema.define(version: 20170516163715) do
     t.text "city"
     t.text "state"
     t.text "shape"
-    t.text "duration"
-    t.text "summary"
-    t.text "post_date"
-    t.text "junk"
-    t.text "junk1"
-  end
-
-  create_table "world_ufos", force: :cascade do |t|
-    t.text "sight_date"
-    t.text "post_date"
-    t.text "city_state"
     t.text "duration"
     t.text "summary"
     t.text "latitude"
