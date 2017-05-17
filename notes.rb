@@ -1,5 +1,7 @@
+
 COPY ufos(sight_date, city, state, country, shape, degree, duration, summary, post_date, latitude, longitude) FROM '/Users/Guest/Desktop/ufo.csv' CSV;
-COPY ufos(sight_date, city, state, shape, duration, summary, post_date) FROM '/Users/Guest/Desktop/sightings.csv' DELIMITER ',' CSV HEADER;
+# oregon_sightings.csv
+COPY ufos(sight_date, city, state, shape, duration, summary, post_date) FROM '/Users/Guest/Desktop/UFOregon/raw_data/oregon_sightings.csv' DELIMITER ',' CSV HEADER;
   class Tables < ActiveRecord::Migration[5.1]
     def change
       create_table(:ufos) do |t|

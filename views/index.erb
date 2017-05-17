@@ -1,9 +1,13 @@
 <h1>Sightings in Oregon</h1>
 
+<div id="ajax_test"></div>
+
 <div class="row">
   <div class="col-xs-4">
     <h3>buttons</h3>
     <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
+    <br>
+    <button id="run_map" class="btn btn-success btn-sm">Map it!</button>
   </div>
   <div class="col-xs-4">
     <h3>middle col</h3>
@@ -11,7 +15,9 @@
   <div class="col-xs-4">
     <h3>test area</h3>
     <div>
-      <p>Ruby code: </p><p id="json_test"><%=@ruby_hash.to_json%></p>
+      <p>Ruby code: </p><p id="json_test1"><%=@ruby_hash.to_json%></p>
+      <p>json out: </p>
+      <div id="json_out"></div>
     </div>
     <div>
       <p>Javascript got: </p><p id="output_hash"></p>
@@ -20,13 +26,13 @@
 </div>
 <hr>
 
-
 <div id="map_super">
   <div id="map"></div>
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>"></script>
 </div>
-<!-- Replace the value of the key parameter with your own API key. -->
 
 <div id="map_script"></div>
 
-<script  async defer src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>&callback=initMap">
-</script>
+<!-- <script  async defer src="https://maps.googleapis.com/maps/api/js?key=<%=@key_main%>&callback=initMap">
+</script> -->
