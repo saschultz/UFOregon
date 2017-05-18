@@ -5,11 +5,11 @@
   <div class="col-xs-4">
     <button id="toggle_map" class="btn btn-City btn-sm" name="toggle_map">Toggle map</button>
     <br>
-    <button id="show_all" class="btn btn-City btn-sm" name="">SHOW ALL!</button>
+    <!-- <button id="show_all" class="btn btn-City btn-sm" name="">SHOW ALL!</button> -->
   </div>
   <div class="col-xs-4">
     <form action="/get_city_name" method="post">
-        <input class="blk_text" type="text" name="city_name" placeholder="search by city"></input>
+        <input class="blk_text" type="text" name="city_name" placeholder="search by city" required></input>
         <button class="btn btn-City btn-sm" type="submit">Search!</button>
         <% if (@selected_city.get_name != "") %>
           <h4 id="instructions">Click UFO for sighting reports</h4>
