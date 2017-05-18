@@ -109,7 +109,16 @@ function initMap(queryData) {
       icon: ufo,
       map: map
     });
+    marker.addListener('click', toggleBounce);
   });
+
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
 
   // You can use a LatLng literal in place of a google.maps.LatLng object when
   // creating the Marker object. Once the Marker object is instantiated, its

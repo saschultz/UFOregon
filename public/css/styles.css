@@ -21,39 +21,37 @@ body {
 
 .jumbotron {
   background: rgba(0,0,0,0.2);
-  /*background-color: black;*/
-  /*font-family: 'Averia Sans Libre', cursive;*/
-  /*opacity: 0.2;*/
-  /*font-family: 'Exo', sans-serif;*/
-  /*font-family: 'Unica One', cursive; kinda like*/
-  /*font-family: 'Walter Turncoat', cursive; for summaries*/
   color: white;
-  /*font-weight: bolder;*/
   text-align: center;
-
-
-  /*font-family: 'Syncopate', sans-serif;*/
   font-family: 'Nova Mono', monospace;
-  /*font-family: 'Codystar', cursive;*/
-  font-size: 90px;
   letter-spacing: 23px;
+}
+
+.jumbotron h1 {
+  font-size: 100px;
+
 }
 
 #sub-header {
   text-align: center;
 }
+
 .btn {
   background-color: #B7877F;
   font-size: 13px;
   letter-spacing: 4px;
+  border-color: #B7877F;
 }
+
 .btn-info:hover {
   background-color: #a56a5f;
+  border-color: #B7877F;
 }
 
 #ufo {
   color: #B0766D;
 }
+
 #map {
   height: 600px;
   width: 100%;
@@ -67,8 +65,6 @@ body {
     opacity: 0;
  }
 
-
-
 /* scrollable window */
 #dialog-window {
   color: black;
@@ -78,8 +74,18 @@ body {
   padding-right: 200px;
   opacity: 1;
  }
+
  #scrollable-content {
    height: 200px;
    overflow: auto;
    background-color: none;
  }
+
+
+
+  /*font-family: 'Codystar', cursive;*/
+/*font-family: 'Syncopate', sans-serif;*/
+ /*font-family: 'Averia Sans Libre', cursive;*/
+ /*font-family: 'Exo', sans-serif;*/
+ /*font-family: 'Unica One', cursive; kinda like*/
+ /*font-family: 'Walter Turncoat', cursive; for summaries*/
