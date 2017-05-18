@@ -1,5 +1,5 @@
 class Ufo < ActiveRecord::Base
-  
+
 end
 
 
@@ -10,45 +10,64 @@ module Keys
 end
 
 
-module Info
-  @@city = ""
-  @@lat = 0
-  @@lng = 0
-  @@reports = []
-  @@total = 0
+class City
+  @@all = []
+  @@current_city = nil
 
-  def Info.save_city(city)
-    @@city = city
-  end
-  def Info.get_city
-    @@city
+  def initialize()
+    @name = ""
+    @lat = 0
+    @lng = 0
+    @reports = []
+    @total = 0
   end
 
-  def Info.save_lat(num)
-    @@lat = num
+  def City.save_to_all(arr)
+    @@all = arr
   end
-  def Info.get_lat
-    @@lat
-  end
-  def Info.save_lng(num)
-    @@lng = num
-  end
-  def Info.get_lng
-    @@lng
+  def City.get_all
+    @@all
   end
 
-  def Info.save_rep(arr)
-    @@reports = arr
+  def City.save_current_city(city_obj)
+    @@current_city = city_obj
   end
-  def Info.get_rep
-    @@reports
+  def City.get_current_city
+    @@current_city
   end
 
-  def Info.save_total(num)
-    @@total = num
+  def save_name(name)
+    @name = name
   end
-  def Info.get_total
-    @@total
+  def get_name
+    @name
+  end
+
+  def save_lat(num)
+    @lat = num
+  end
+  def get_lat
+    @lat
+  end
+  def save_lng(num)
+    @lng = num
+  end
+  def get_lng
+    @lng
+  end
+
+  def save_rep(arr)
+    @reports = arr
+  end
+  def get_rep
+    @reports
+  end
+
+  def save_total(num)
+    @total = num
+  end
+  def get_total
+    @total
   end
 
 end

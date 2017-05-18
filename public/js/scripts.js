@@ -118,7 +118,7 @@ function initMap(queryData) {
   // setting up the marker window HTML content
   var myContent = "";
   if (queryData[0]['tot'] !== 0) {
-    myContent = "<h3 class='blk_text'>" + queryData[0]["cit"] + "</h3><br>" + "<p class='blk_text'>Found = " + queryData[0]["tot"] + " UFOs <br>" +
+    myContent = "<h3 class='blk_text'>" + queryData[0]["nam"] + "</h3><br>" + "<p class='blk_text'>Found = " + queryData[0]["tot"] + " UFOs <br>" +
     "<p class='blk_text'>Lat= " + queryData[0]["lat"] + "<br>" + " Long= " + queryData[0]["lng"] + "<p>";
   }
   // map marker window
@@ -163,22 +163,28 @@ $(document).ready(function() {
     console.log("toggle_map clicked");
   });
 
+  $("#all_namies").click(function() {
+    console.log("all_cities clicked");
+  });
+
   // AJAX get request - to refresh the map
   $.get("/ruby_data", function(ruby_data) {
+    console.log("AJAX $.get('/ruby_data' happened");
     parsed_data = JSON.parse(ruby_data);
     initMap(parsed_data);
   });
 
-  $("#map_it").click(function() {
-    // AJAX get request
-    $.get("/ruby_data", function(ruby_data) {
-      parsed_data = JSON.parse(ruby_data);
-      initMap(parsed_data);
-    });
-    console.log("run_map clicked");
-  });
-
 });
+
+// OLD BUTTON
+// $("#map_it").click(function() {
+//   // AJAX get request
+//   $.get("/ruby_data", function(ruby_data) {
+//     parsed_data = JSON.parse(ruby_data);
+//     initMap(parsed_data);
+//   });
+//   console.log("run_map clicked");
+// });
 
 // TEST
 // $("button").click(function(){

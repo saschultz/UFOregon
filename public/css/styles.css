@@ -42,6 +42,10 @@ body {
   text-align: center;
 }
 
+.controls_row {
+  height: 130px;
+}
+
 .btn {
   background-color: #B7877F;
   font-size: 13px;
@@ -63,6 +67,10 @@ body {
   width: 100%;
 }
 
+#show_all {
+  margin-top: 10px;
+}
+
 .hide {
    display: none;
 }
@@ -71,6 +79,9 @@ body {
     opacity: 0;
 }
 
+.query {
+  text-align: center;
+}
 
 .credits {
   background-image: url('../img/child_awe.jpg');
@@ -82,7 +93,7 @@ body {
   height: 50%;
   width: 50%;
   position: fixed;
-  
+
 }
 
 
