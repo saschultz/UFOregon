@@ -23,14 +23,12 @@ body {
   background: rgba(0,0,0,0.2);
   color: white;
   text-align: center;
-  /*font-family: 'Syncopate', sans-serif;*/
   font-family: 'Nova Mono', monospace;
   letter-spacing: 23px;
 }
 
 .jumbotron h1 {
   font-size: 100px;
-
 }
 
 #sub-header {
@@ -88,12 +86,10 @@ body {
   height: 50%;
   width: 50%;
   position: fixed;
-
 }
 
 
 /* scrollable window */
-
 #dialog-window {
   padding-top: 2%;
   height: 500px;
@@ -114,6 +110,7 @@ body {
 
 
   /*font-family: 'Codystar', cursive;*/
+  /*font-family: 'Syncopate', sans-serif;*/
 /*font-family: 'Syncopate', sans-serif;*/
  /*font-family: 'Averia Sans Libre', cursive;*/
  /*font-family: 'Exo', sans-serif;*/

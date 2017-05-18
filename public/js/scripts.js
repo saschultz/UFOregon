@@ -136,15 +136,6 @@ function initMap(queryData) {
     }
   }
 
-  // function addMarkerWithTimeout(position, timeout) {
-  //   window.setTimeout(function() {
-  //     markers.push(new google.maps.Marker({
-  //       position: position,
-  //       map: map,
-  //       animation: google.maps.Animation.BOUNCE
-  //     }));
-  //   }, timeout);
-  // }
   //Function to display UFO reports upon icon click
   function showReport() {
     $('#scrollable-content').show();
