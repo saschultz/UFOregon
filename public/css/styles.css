@@ -31,6 +31,10 @@ body {
   font-size: 100px;
 }
 
+#ufo {
+  color: #B0766D;
+}
+
 #sub-header {
   text-align: center;
 }
@@ -51,8 +55,8 @@ body {
   border-color: #B7877F;
 }
 
-#ufo {
-  color: #B0766D;
+#instructions {
+  padding-top: 21%;
 }
 
 #map {
