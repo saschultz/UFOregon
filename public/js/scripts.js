@@ -102,13 +102,18 @@ function initMap(queryData) {
     styles: google_styles
   });
   // places each marker for the city
+  var ufo = './img/ufo_marker_eerie.png'
   queryData.forEach(function(hash_obj) {
     let coord = new google.maps.LatLng(hash_obj['lat'],hash_obj['lng']);
     marker = new google.maps.Marker({
       position: coord,
+      animation: google.maps.Animation.DROP,
+      icon: ufo,
       map: map
     });
+    marker.addListener('click', toggleBounce);
   });
+
   // setting up the marker window HTML content
   var myContent = "";
   if (queryData[0]['tot'] !== 0) {
@@ -116,6 +121,22 @@ function initMap(queryData) {
     "<p class='blk_text'>Lat= " + queryData[0]["lat"] + "<br>" + " Long= " + queryData[0]["lng"] + "<p>";
   }
   // map marker window
+
+
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+
+  // You can use a LatLng literal in place of a google.maps.LatLng object when
+  // creating the Marker object. Once the Marker object is instantiated, its
+  // position will be available as a google.maps.LatLng object. In this case,
+  // we retrieve the marker's position using the
+  // google.maps.LatLng.getPosition() method.
+
   var infowindow = new google.maps.InfoWindow({
     content: myContent
   });

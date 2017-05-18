@@ -21,28 +21,32 @@ body {
 
 .jumbotron {
   background: rgba(0,0,0,0.2);
-  /*background-color: black;*/
-  /*font-family: 'Averia Sans Libre', cursive;*/
-  /*opacity: 0.2;*/
-  /*font-family: 'Exo', sans-serif;*/
-  /*font-family: 'Unica One', cursive; kinda like*/
-  /*font-family: 'Walter Turncoat', cursive; for summaries*/
   color: white;
-  /*font-weight: bolder;*/
   text-align: center;
   /*font-family: 'Syncopate', sans-serif;*/
   font-family: 'Nova Mono', monospace;
-  /*font-family: 'Codystar', cursive;*/
-  font-size: 90px;
   letter-spacing: 23px;
 }
+
+.jumbotron h1 {
+  font-size: 100px;
+
+}
+
+#sub-header {
+  text-align: center;
+}
+
 .btn {
   background-color: #B7877F;
   font-size: 13px;
   letter-spacing: 4px;
+  border-color: #B7877F;
 }
+
 .btn-info:hover {
   background-color: #a56a5f;
+  border-color: #B7877F;
 }
 
 #ufo {
@@ -63,6 +67,19 @@ body {
 }
 
 
+.credits {
+  background-image: url('../img/child_awe.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 50%;
+  position: fixed;
+  
+}
+
 
 /* scrollable window */
 #dialog-window {
@@ -73,8 +90,18 @@ body {
   padding-right: 200px;
   opacity: 1;
  }
+
  #scrollable-content {
    height: 200px;
    overflow: auto;
    background-color: none;
  }
+
+
+
+  /*font-family: 'Codystar', cursive;*/
+/*font-family: 'Syncopate', sans-serif;*/
+ /*font-family: 'Averia Sans Libre', cursive;*/
+ /*font-family: 'Exo', sans-serif;*/
+ /*font-family: 'Unica One', cursive; kinda like*/
+ /*font-family: 'Walter Turncoat', cursive; for summaries*/
