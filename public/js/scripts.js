@@ -129,12 +129,27 @@ function initMap(queryData) {
       marker.setAnimation(null);
     } else {
       marker.setAnimation(google.maps.Animation.BOUNCE);
+
+    setTimeout(function() {
+        marker.setAnimation(null)
+    }, 2800);
     }
   }
 
+  // function addMarkerWithTimeout(position, timeout) {
+  //   window.setTimeout(function() {
+  //     markers.push(new google.maps.Marker({
+  //       position: position,
+  //       map: map,
+  //       animation: google.maps.Animation.BOUNCE
+  //     }));
+  //   }, timeout);
+  // }
+  //Function to display UFO reports upon icon click
   function showReport() {
     $('#scrollable-content').show();
   }
+
 
   // You can use a LatLng literal in place of a google.maps.LatLng object when
   // creating the Marker object. Once the Marker object is instantiated, its
