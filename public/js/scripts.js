@@ -112,6 +112,7 @@ function initMap(queryData) {
       map: map
     });
     marker.addListener('click', toggleBounce);
+    marker.addListener('click', showReport);
   });
 
   // setting up the marker window HTML content
@@ -129,6 +130,10 @@ function initMap(queryData) {
     } else {
       marker.setAnimation(google.maps.Animation.BOUNCE);
     }
+  }
+
+  function showReport() {
+    $('#scrollable-content').show();
   }
 
   // You can use a LatLng literal in place of a google.maps.LatLng object when

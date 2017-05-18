@@ -1,3 +1,8 @@
+/*#test {
+  display: none;
+}*/
+
+
 body {
   color: white;
   font-family: 'Ubuntu Mono', monospace; like this one actually
@@ -82,20 +87,25 @@ body {
 
 
 /* scrollable window */
-#dialog-window {
-  color: black;
-  background-color: rgba(0,0,0,0.5)
-  height: 300px;
-  padding-left: 200px;
-  padding-right: 200px;
-  opacity: 1;
- }
 
- #scrollable-content {
-   height: 200px;
-   overflow: auto;
-   background-color: none;
- }
+#dialog-window {
+  height: 500px;
+}
+
+#map_script, #scrollable-content {
+  display: none;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 2%;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5em;
+  background: rgba(0,0,0,0.5);
+  opacity: 0.4;
+  height: 400px;
+  width: 100%;
+  z-index: -4;
+}
 
 
 

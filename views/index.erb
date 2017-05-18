@@ -33,11 +33,13 @@
 </div>
 
 <div id="map_script"></div>
-
+<!-- <p id="test">
+  test
+</p> -->
 <% if (Info.get_city != "") %>
-  <h1><span><%=Info.get_total%></span> Sightings found for <span><%=Info.get_city%>:</span></h1>
   <div id="dialog-window">
     <div id="scrollable-content">
+      <h1><span><%=Info.get_total%></span> Sightings found for <span><%=Info.get_city%>:</span></h1>
       <ol>
         <% if (Info.get_rep.length != 0) %>
           <% Info.get_rep.each do |report| %>
