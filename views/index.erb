@@ -3,18 +3,20 @@
 
 <div class="row controls_row">
   <div class="col-xs-4">
-    <button id="toggle_map" class="btn btn-City btn-sm" name="toggle_map">Toggle map</button>
+    <button id="toggle_map" class="btn btn-City" name="toggle_map">Toggle map</button>
     <br>
-    <button id="show_all" class="btn btn-City btn-sm" name="">SHOW ALL!</button>
+    <form  action="/get_all_cities" method="post">
+      <button id="show_all" type="submit" class="btn btn-City" name="">SHOW ALL!</button>
+    </form>
   </div>
   <div class="col-xs-4">
     <form action="/get_city_name" method="post">
         <input class="blk_text" type="text" name="city_name" placeholder="search by city"></input>
-        <button class="btn btn-City btn-sm" type="submit">Search!</button>
+        <button class="btn btn-City" type="submit">Search!</button>
     </form>
   </div>
   <div class="col-xs-4 query">
-    <% if (@selected_city.get_name != "") %>
+    <% if (@selected_city != nil) %>
       <p>Your Query results:</p>
       <p>Sightings found: <%= @selected_city.get_total %></p>
       <p>City latitude: <%= @selected_city.get_lat %></p>
@@ -31,7 +33,7 @@
 </div>
 
 <div id="map_script"></div>
-<% if (@selected_city.get_name != "") %>
+<% if (@selected_city != nil) %>
   <div id="dialog-window">
     <div id="scrollable-content">
       <h1><span><%=@selected_city.get_total%></span> Sightings found for <span><%=@selected_city.get_name%>:</span></h1>
