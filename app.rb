@@ -44,6 +44,7 @@ post('/get_city') do
 end
 
 
+
 # AJAX EXAMPLE
 
 # get '/' do
@@ -74,3 +75,7 @@ end
 # File.open("./temp.js","w") do |file|
 #   file.write(coords.to_json)
 # end
+
+get '/end' do
+  erb :end
+end
