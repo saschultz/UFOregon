@@ -32,7 +32,7 @@
 
 <div id="map_script"></div>
 <% if (@selected_city.get_name != "") %>
-  <div id="dialog-window">
+  <!-- <div id="dialog-window"> -->
     <div id="scrollable-content">
       <h1><span><%=@selected_city.get_total%></span> Sightings found for <span><%=@selected_city.get_name%>:</span></h1>
       <ol>
@@ -43,10 +43,9 @@
         <% end %>
       </ol>
     </div>
-  </div>
+  <!-- </div> -->
 <% else %>
   <h1>Select a city to see reports</h1>
 <% end %>
 
 <a href='/end'>
-
