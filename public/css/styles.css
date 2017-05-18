@@ -23,6 +23,7 @@ body {
   background: rgba(0,0,0,0.2);
   color: white;
   text-align: center;
+  /*font-family: 'Syncopate', sans-serif;*/
   font-family: 'Nova Mono', monospace;
   letter-spacing: 23px;
 }
@@ -55,15 +56,15 @@ body {
 #map {
   height: 600px;
   width: 100%;
- }
+}
 
- .hide {
+.hide {
    display: none;
- }
+}
 
- .opacity {
+.opacity {
     opacity: 0;
- }
+}
 
 
 .credits {

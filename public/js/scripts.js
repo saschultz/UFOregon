@@ -88,21 +88,23 @@ var google_styles = [
   }
 ];
 
-//// this initMap is a 'callback' fucntion attached to the end of the URL on index.erb
+//////////////////v////////////////////////////////////
+//// initMap = master google maps API output
+//////////////////////////////////////////////////////
 function initMap(queryData) {
-  console.log("queryData: " , queryData);
+  // console.log("queryData: " , queryData);
+  let startCoord = new google.maps.LatLng(queryData[0]["lat"],queryData[0]["lng"]);
   // creates a new google maps object and centers on a area
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 7,
-    center: {lat: 44.06, lng: -121.32},
-        styles: google_styles
-      });
-
+    // center: {lat: 44.06, lng: -121.32},
+    center: startCoord,
+    styles: google_styles
+  });
   // places each marker for the city
   var ufo = './img/ufo_marker_eerie.png'
   queryData.forEach(function(hash_obj) {
-    var coord = new google.maps.LatLng(hash_obj['lat'],hash_obj['lng']);
-    // coord = {lat: hash_obj['lat'],lng: hash_obj['lng']};
+    let coord = new google.maps.LatLng(hash_obj['lat'],hash_obj['lng']);
     marker = new google.maps.Marker({
       position: coord,
       animation: google.maps.Animation.DROP,
@@ -111,6 +113,15 @@ function initMap(queryData) {
     });
     marker.addListener('click', toggleBounce);
   });
+
+  // setting up the marker window HTML content
+  var myContent = "";
+  if (queryData[0]['tot'] !== 0) {
+    myContent = "<h3 class='blk_text'>" + queryData[0]["cit"] + "</h3><br>" + "<p class='blk_text'>Found = " + queryData[0]["tot"] + " UFOs <br>" +
+    "<p class='blk_text'>Lat= " + queryData[0]["lat"] + "<br>" + " Long= " + queryData[0]["lng"] + "<p>";
+  }
+  // map marker window
+
 
   function toggleBounce() {
     if (marker.getAnimation() !== null) {
@@ -125,13 +136,12 @@ function initMap(queryData) {
   // position will be available as a google.maps.LatLng object. In this case,
   // we retrieve the marker's position using the
   // google.maps.LatLng.getPosition() method.
+
   var infowindow = new google.maps.InfoWindow({
-    // example of lattitude and longitude (use <br> after each line to had more 'content')
-    // content: '<p>Marker Location:' + marker.getPosition() + '</p><br>' +
-    content: '<p class="blk_text">location from database: (' + 'Lat: ' + queryData[0]['lat'] + ' Lng: ' + queryData[0]['lng'] + ')<p>'
+    content: myContent
   });
 
-  google.maps.event.addListener(marker, 'mouseover', function() {
+  google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map, marker, queryData);
   });
 }
@@ -185,23 +195,3 @@ $(document).ready(function() {
 //         $("#div1").html(result);
 //     }});
 // });
-
-// TESTING COORDINATES OREGON
-// # [
-// #   {lat: 44.67, lng: -123.22},
-// #   {lat: 43.74, lng: -117.07},
-// #   {lat: 44.63, lng: -123.10},
-// #   {lat: 45.50, lng: -122.87},
-// #   {lat: 44.38, lng: -123.60},
-// #   {lat: 44.13, lng: -123.26},
-// #   {lat: 42.54, lng: -118.46},
-// #   {lat: 45.12, lng: -123.21},
-// #   {lat: 45.49, lng: -122.80},
-// #   {lat: 44.06, lng: -121.32},
-// #   {lat: 44.05, lng: -123.08},
-// #   {lat: 45.52, lng: -122.99},
-// #   {lat: 45.52, lng: -122.68},
-// #   {lat: 43.45, lng: -119.14},
-// #   {lat: 44.08, lng: -121.01},
-// #   {lat: 44.08, lng: -121.01}
-// # ].to_json
