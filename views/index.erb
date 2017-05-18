@@ -3,7 +3,7 @@
 <br>
 <div class="row controls_row">
   <div class="col-xs-4">
-    <button id="toggle_map" class="btn btn-City btn-sm" name="toggle_map">Toggle map</button>
+    <button id="toggle_map" class="btn btn-City" name="toggle_map">Toggle map</button>
     <br>
   </div>
   <div class="col-xs-4">
@@ -17,10 +17,12 @@
   </div>
   <div class="col-xs-4 query">
     <% if (@selected_city != nil) %>
+
         <h3>Your Query results:</h3>
         <p>Sightings found: <%= @selected_city.get_total %></p>
         <p>City latitude: <%= @selected_city.get_lat %></p>
         <p>City longitude: <%= @selected_city.get_lng %></p>
+
     <% end %>
   </div>
 </div>
@@ -47,7 +49,7 @@
     </div>
   </div>
 <% else %>
-  <h1>Select a city to see reports</h1>
+  <!-- <h1>Select a city to see reports</h1> -->
 <% end %>
 
 <a href='/end'>
