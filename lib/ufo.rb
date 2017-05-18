@@ -72,10 +72,10 @@ class City
 
   def City.validate_name?(name)
     valid = nil
-    if name
-      valid = false
+    if (name !~ /[^a-zA-Z]/i)
+      valid = true
     else
-      true
+      valid = false
     end
     valid
   end

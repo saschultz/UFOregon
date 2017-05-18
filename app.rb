@@ -7,14 +7,14 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get("/") do
   # when page first loads, return an empty city to plot on the map
-  tmp_city = City.new()
-  tmp_city.save_lat(0)
-  tmp_city.save_lng(0)
-  tmp_city.save_name("")
-  tmp_city.save_total(0)
-  tmp_city.save_rep([])
-  City.save_current_city(tmp_city)
-  @selected_city = City.get_current_city
+  # tmp_city = City.new()
+  # tmp_city.save_lat(0)
+  # tmp_city.save_lng(0)
+  # tmp_city.save_name("")
+  # tmp_city.save_total(0)
+  # tmp_city.save_rep([])
+  # City.save_current_city(nil)
+  @selected_city = nil
   erb(:index)
 end
 
@@ -40,24 +40,31 @@ get('/ruby_data') do
 end
 
 post('/get_city_name') do
-  new_city = City.new()
-  new_city.save_name(params.fetch('city_name'))
-  found_rows_arr = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{new_city.get_name}';")
-  new_city.save_total(found_rows_arr.count)
-  # returns a single record for city to display correct map marker
-  single_city_record = Ufo.find_by(city: new_city.get_name)
-  new_city.save_lat(single_city_record['latitude'])
-  new_city.save_lng(single_city_record['longitude'])
-  # extract all the sighting reports
-  summaries = []
-  result = Ufo.where(["city = ?", new_city.get_name])
-  result.each do |row|
-    summaries.push(row['summary'])
+  city_name = params.fetch('city_name')
+# binding.pry
+  if City.validate_name?(city_name)
+    new_city = City.new()
+    new_city.save_name(city_name)
+    found_rows_arr = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{new_city.get_name}';")
+    new_city.save_total(found_rows_arr.count)
+    # returns a single record for city to display correct map marker
+    single_city_record = Ufo.find_by(city: new_city.get_name)
+    new_city.save_lat(single_city_record['latitude'])
+    new_city.save_lng(single_city_record['longitude'])
+    # extract all the sighting reports
+    summaries = []
+    result = Ufo.where(["city = ?", new_city.get_name])
+    result.each do |row|
+      summaries.push(row['summary'])
+    end
+    new_city.save_rep(summaries)
+    City.save_current_city(new_city)
+    @selected_city = City.get_current_city
+    erb(:index)
+  else
+    @selected_city = nil
+    erb(:errors)
   end
-  new_city.save_rep(summaries)
-  City.save_current_city(new_city)
-  @selected_city = City.get_current_city
-  erb(:index)
 end
 
 post('/get_all_cities') do
