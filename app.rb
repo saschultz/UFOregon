@@ -19,9 +19,21 @@ end
 get('/ruby_data') do
   # data to be passed to javascript
   if (Info.get_lat != 0)
-    [{lat: Info.get_lat,lng: Info.get_lng, rep: Info.get_rep}].to_json
+      [{
+        cit: Info.get_city,
+        lat: Info.get_lat,
+        lng: Info.get_lng,
+        rep: Info.get_rep,
+        tot: Info.get_total
+      }].to_json
   else
-    [{lat: 44.06, lng: -121.32, rep: "none"}].to_json
+      [{
+        cit: "Bend",
+        lat: 44.06,
+        lng: -121.32,
+        rep: "",
+        tot: 0
+      }].to_json
   end
 end
 

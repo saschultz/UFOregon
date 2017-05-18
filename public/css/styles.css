@@ -30,8 +30,6 @@ body {
   color: white;
   /*font-weight: bolder;*/
   text-align: center;
-
-
   /*font-family: 'Syncopate', sans-serif;*/
   font-family: 'Nova Mono', monospace;
   /*font-family: 'Codystar', cursive;*/
@@ -50,18 +48,19 @@ body {
 #ufo {
   color: #B0766D;
 }
+
 #map {
   height: 600px;
   width: 100%;
- }
+}
 
- .hide {
+.hide {
    display: none;
- }
+}
 
- .opacity {
+.opacity {
     opacity: 0;
- }
+}
 
 
 
