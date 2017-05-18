@@ -1,26 +1,24 @@
 
+<h3 id="sub-header">Search the UFO database...</h3>
 
-<h1 id="sub-header">Search the UFO database...</h1>
-
-<div class="row">
+<div class="row controls_row">
   <div class="col-xs-4">
-    <button id="toggle_map" class="btn btn-info btn-sm" name="toggle_map">Show/Hide map</button>
-
+    <button id="toggle_map" class="btn btn-City btn-sm" name="toggle_map">Toggle map</button>
+    <br>
+    <button id="show_all" class="btn btn-City btn-sm" name="">SHOW ALL!</button>
   </div>
   <div class="col-xs-4">
-    <form action="/get_city" method="post">
+    <form action="/get_city_name" method="post">
         <input class="blk_text" type="text" name="city_name" placeholder="search by city"></input>
-        <button class="btn btn-info btn-sm" type="submit">Search!</button>
+        <button class="btn btn-City btn-sm" type="submit">Search!</button>
     </form>
-    <!-- <button id="map_it" class="btn btn-success btn-sm">Map it!</button> -->
-
   </div>
-  <div class="col-xs-4">
-    <% if (Info.get_city != "") %>
-      <h3>Your Query results:</h3>
-      <h4>Sightings found: <%= Info.get_total %></h4>
-      <h4>City latitude: <%= Info.get_lat %></h4>
-      <h4>City longitude: <%= Info.get_lng %></h4>
+  <div class="col-xs-4 query">
+    <% if (@selected_city.get_name != "") %>
+      <p>Your Query results:</p>
+      <p>Sightings found: <%= @selected_city.get_total %></p>
+      <p>City latitude: <%= @selected_city.get_lat %></p>
+      <p>City longitude: <%= @selected_city.get_lng %></p>
     <% end %>
   </div>
 </div>
@@ -33,16 +31,13 @@
 </div>
 
 <div id="map_script"></div>
-<!-- <p id="test">
-  test
-</p> -->
-<% if (Info.get_city != "") %>
+<% if (@selected_city.get_name != "") %>
   <div id="dialog-window">
     <div id="scrollable-content">
-      <h1><span><%=Info.get_total%></span> Sightings found for <span><%=Info.get_city%>:</span></h1>
+      <h1><span><%=@selected_city.get_total%></span> Sightings found for <span><%=@selected_city.get_name%>:</span></h1>
       <ol>
-        <% if (Info.get_rep.length != 0) %>
-          <% Info.get_rep.each do |report| %>
+        <% if (@selected_city.get_rep.length != 0) %>
+          <% @selected_city.get_rep.each do |report| %>
             <li><%= report %></li>
           <% end %>
         <% end %>
