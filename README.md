@@ -37,7 +37,7 @@ As a user, I want to see an indicator that shows which city's sighting informati
 |----------|:-----:|:------:|
 | view map of Oregon  | user navigates to home page | map of Oregon loads with a marker indicating the center of the map |
 | enter a city name to see a marker for that city | "Portland" | marker drops on Portland |
-| click UFO marker for a city to see more details | click UFO on Portland | A list of all of the descriptions of each unique sighting in that city shows below the map |
+| click UFO marker for a city to see more details | click UFO on Portland | A list of all of the descriptions of each unique sighting in that city shows below the map, and a display window on the marker shoes the city name, coordinates, and number of sightings |
 
 
 ## Setup/Installation Requirements

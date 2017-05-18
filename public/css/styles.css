@@ -31,6 +31,10 @@ body {
   font-size: 100px;
 }
 
+#ufo {
+  color: #B0766D;
+}
+
 #sub-header {
   text-align: center;
 }
@@ -51,8 +55,8 @@ body {
   border-color: #B7877F;
 }
 
-#ufo {
-  color: #B0766D;
+#instructions {
+  padding-top: 21%;
 }
 
 #map {
@@ -109,10 +113,10 @@ body {
 
 
 
-  /*font-family: 'Codystar', cursive;*/
-  /*font-family: 'Syncopate', sans-serif;*/
+/*font-family: 'Codystar', cursive;*/
 /*font-family: 'Syncopate', sans-serif;*/
- /*font-family: 'Averia Sans Libre', cursive;*/
- /*font-family: 'Exo', sans-serif;*/
- /*font-family: 'Unica One', cursive; kinda like*/
- /*font-family: 'Walter Turncoat', cursive; for summaries*/
+/*font-family: 'Syncopate', sans-serif;*/
+/*font-family: 'Averia Sans Libre', cursive;*/
+/*font-family: 'Exo', sans-serif;*/
+/*font-family: 'Unica One', cursive; kinda like*/
+/*font-family: 'Walter Turncoat', cursive; for summaries*/

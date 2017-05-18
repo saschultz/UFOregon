@@ -1,5 +1,4 @@
 require "bundler/setup"
-# require "../ALLKEYS"
 require 'pry'
 
 Bundler.require :default
@@ -14,17 +13,27 @@ get("/") do
   # tmp_city.save_name("")
   # tmp_city.save_total(0)
   # tmp_city.save_rep([])
-  # City.save_current_city(tmp_city)
-  # @selected_city = City.get_current_city
+
+  # City.save_current_city(nil)
   @selected_city = nil
-  City.save_current_city(@selected_city)
+
   erb(:index)
 end
 
 
 get('/ruby_data') do
-  # data to be passed to javascript through AJAX get request in scripts.js
-  if (City.get_current_city == nil)
+
+  # data to be passed to javascript
+  if (City.get_current_city.get_lat != 0)
+      [{
+        nam: City.get_current_city.get_name,
+        lat: City.get_current_city.get_lat,
+        lng: City.get_current_city.get_lng,
+        rep: City.get_current_city.get_rep,
+        tot: City.get_current_city.get_total
+      }].to_json
+  else
+
       [{
         nam: "Bend",
         lat: 44.06,
@@ -58,24 +67,31 @@ end
 
 
 post('/get_city_name') do
-  new_city = City.new()
-  new_city.save_name(params.fetch('city_name'))
-  found_rows_arr = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{new_city.get_name}';")
-  new_city.save_total(found_rows_arr.count)
-  # returns a single record for city to display correct map marker
-  single_city_record = Ufo.find_by(city: new_city.get_name)
-  new_city.save_lat(single_city_record['latitude'])
-  new_city.save_lng(single_city_record['longitude'])
-  # extract all the sighting reports
-  summaries = []
-  result = Ufo.where(["city = ?", new_city.get_name])
-  result.each do |row|
-    summaries.push(row['summary'])
+  city_name = params.fetch('city_name')
+# binding.pry
+  if City.validate_name?(city_name)
+    new_city = City.new()
+    new_city.save_name(city_name)
+    found_rows_arr = Ufo.find_by_sql("SELECT * FROM ufos WHERE city = '#{new_city.get_name}';")
+    new_city.save_total(found_rows_arr.count)
+    # returns a single record for city to display correct map marker
+    single_city_record = Ufo.find_by(city: new_city.get_name)
+    new_city.save_lat(single_city_record['latitude'])
+    new_city.save_lng(single_city_record['longitude'])
+    # extract all the sighting reports
+    summaries = []
+    result = Ufo.where(["city = ?", new_city.get_name])
+    result.each do |row|
+      summaries.push(row['summary'])
+    end
+    new_city.save_rep(summaries)
+    City.save_current_city(new_city)
+    @selected_city = City.get_current_city
+    erb(:index)
+  else
+    @selected_city = nil
+    erb(:errors)
   end
-  new_city.save_rep(summaries)
-  City.save_current_city(new_city)
-  @selected_city = City.get_current_city
-  erb(:index)
 end
 
 

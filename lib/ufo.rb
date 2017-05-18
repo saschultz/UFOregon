@@ -9,10 +9,10 @@ module Keys
   end
 end
 
-
 class City
   @@all = []
   @@current_city = nil
+
 
   def initialize()
     @name = ""
@@ -69,5 +69,16 @@ class City
   def get_total
     @total
   end
+
+  def City.validate_name?(name)
+    valid = nil
+    if (name !~ /[^a-zA-Z]/i)
+      valid = true
+    else
+      valid = false
+    end
+    valid
+  end
+
 
 end
