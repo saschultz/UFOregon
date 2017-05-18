@@ -94,23 +94,22 @@ body {
 
 /* scrollable window */
 
-/*#dialog-window {
+#dialog-window {
+  padding-top: 2%;
   height: 500px;
-}*/
+}
 
 #map_script, #scrollable-content {
   display: none;
   padding-left: 3%;
   padding-right: 3%;
-  padding-top: 2%;
+  /*padding-top: 2%;*/
   color: white;
   font-weight: bolder;
   font-size: 1.5em;
-  /*background: rgba(0,0,0,0.5);*/
   opacity: 0.4;
-  /*height: 400px;
-  width: 100%;*/
-  /*z-index: -4;*/
+  height: 400px;
+  overflow: auto;
 }
 
 
