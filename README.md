@@ -1,11 +1,12 @@
 # UFOregon
-<p style="text-align: center;">![](https://media.giphy.com/media/VbmYpyiGXt2AU/giphy.gif)</p>
+![](https://media.giphy.com/media/VbmYpyiGXt2AU/giphy.gif)
 
-This website will allow footwear distributors to track which brands they offer and what stores carry them. Additionally, it will allow store owners to see which brands are available and add them to their own inventory.
+
+This application uses data from the National UFO Reporting Center (NUFORC) database @ http://www.nuforc.org to show on a Google Map all of the locations where a UFO sighting has been reported in the state of Oregon. Upon clicking the marker information about the different sightings will be available.
 
 ## Screenshot
 
-![screenshot](/Users/dw/Desktop/UFOregon/public/img/screen_shot.png)
+![screenshot](public/img/screen_shot.png)
 
 ## Built With
 
@@ -20,52 +21,57 @@ This website will allow footwear distributors to track which brands they offer a
 * Javascript
 * JSON
 * Google Maps API
+* Heroku
 
 ### User Stories
 
 As a user, I want to see a map of Oregon.
-As a user, I want to see a symbol to show the location of a UFO sighting in Oregon.
-As a user, I want to be able to sort how the data is displayed by year, location, and shape.
+As a user, I want to search for a city in Oregon to see its reported UFO sightings.
+As a user, I want to see more information about the sightings that have been reported there.
+As a user, I want to see an indicator that shows which city's sighting information I am currently viewing with a marker on the map.
+
 
 ## Specifications
 
 | Behavior | Input | Output |
 |----------|:-----:|:------:|
-|  |  |  |
+| view map of Oregon  | user navigates to home page | map of Oregon loads with a marker indicating the center of the map |
+| enter a city name to see a marker for that city | "Portland" | marker drops on Portland |
+| click UFO marker for a city to see more details | click UFO on Portland | A list of all of the descriptions of each unique sighting in that city shows below the map |
 
 
 ## Setup/Installation Requirements
-- [ ] ⌘Command T to open a new tab in the terminal and start postgres (leave it running in the background)
+1. ⌘Command T to open a new tab in the terminal and start postgres (leave it running in the background)
 ```
 $ postgres
 ```
-- [ ] Clone this repository in the terminal
+2. Clone this repository in the terminal
 ```
 $ git clone https://github.com/saschultz/UFOregon.git
 ```
-- [ ] Make sure you have rake installed
+3. Make sure you have rake installed
 ```
 $ gem install rake
 ```
-- [ ] Navigate to the project directory
+4. Navigate to the project directory
 ```
 $ cd Desktop/UFOregon
 ```
-- [ ] In the terminal
+5. In the terminal
 ```
 $ rake db:schema:load
 ```
-- [ ] Open the project in a text editor of your choice
+6. Open the project in a text editor of your choice
 ```
 $ atom .
 ```
-- [ ] Prepare the database
+7. Prepare the database
 ```
 $ rake db:create
 $ rake db:migrate
 $ rake db:test:prepare
 ```
-- [ ] In psql navigate to the oregon_sightings_development database and copy in the database file
+8. In psql navigate to the oregon_sightings_development database and copy in the database file
 ```
 $ psql
 
@@ -73,11 +79,11 @@ $ psql
 
 COPY ufos(sight_date, city, state, shape, duration, summary, latitude, longitude) FROM '/Users/Guest/desktop/UFOregon/raw_data/oregon_sightings_latlong.csv' DELIMITER ',' CSV;
 ```
-- [ ] ⌘Command T to open another new tab in the terminal and start sinatra (leave it running in background)
+9. ⌘Command T to open another new tab in the terminal and start sinatra (leave it running in background)
 ```
 $ ruby app.rb
 ```
-- [ ] Navigate to localhost:4567 in a web browser of your choice
+10. Navigate to localhost:4567 in a web browser of your choice
 
 ## Known Bugs
 *
