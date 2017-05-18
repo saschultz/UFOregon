@@ -9,12 +9,6 @@ module Keys
   end
 end
 
-# class String
-#   def title_case
-#     split(/(\W)/).map(&:capitalize).join
-#   end
-# end
-
 class City
   @@all = []
   @@current_city = nil

@@ -1,4 +1,3 @@
-
 ENV['RACK_ENV'] = 'test'
 
 require("bundler/setup")
@@ -20,4 +19,3 @@ RSpec.configure do |config|
     end
   end
 end
-

@@ -1,5 +1,4 @@
 require "bundler/setup"
-# require "../ALLKEYS"
 require 'pry'
 
 Bundler.require :default
@@ -21,7 +20,6 @@ end
 
 get('/ruby_data') do
   # data to be passed to javascript
-  # binding.pry
   if (City.get_current_city.get_lat != 0)
       [{
         nam: City.get_current_city.get_name,
