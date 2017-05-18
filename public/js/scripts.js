@@ -118,7 +118,7 @@ function initMap(queryData) {
   // setting up the marker window HTML content
   var myContent = "";
   if (queryData[0]['tot'] !== 0) {
-    myContent = "<h3 class='blk_text'>" + queryData[0]["nam"] + "</h3><br>" + "<p class='blk_text'>Found = " + queryData[0]["tot"] + " UFOs <br>" +
+    myContent = "<h3 class='blk_text'>" + queryData[0]["nam"] + "</h3><br>" + "<p class='blk_text'>Found: " + queryData[0]["tot"] + " UFOs <br>" +
     "<p class='blk_text'>Lat= " + queryData[0]["lat"] + "<br>" + " Long= " + queryData[0]["lng"] + "<p>";
   }
   // map marker window
