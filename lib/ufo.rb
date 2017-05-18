@@ -70,4 +70,15 @@ class City
     @total
   end
 
+  def City.validate_name?(name)
+    valid = nil
+    if name
+      valid = false
+    else
+      true
+    end
+    valid
+  end
+
+
 end
