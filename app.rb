@@ -32,15 +32,6 @@ get('/ruby_data') do
         rep: City.get_current_city.get_rep,
         tot: City.get_current_city.get_total
       }].to_json
-  else
-
-      [{
-        nam: "Bend",
-        lat: 44.06,
-        lng: -121.32,
-        rep: "",
-        tot: 0
-      }].to_json
   elsif (City.get_current_city == "many")
       cities_arr = []
       City.get_all.each do |city_obj|
