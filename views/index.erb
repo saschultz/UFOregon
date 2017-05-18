@@ -6,13 +6,15 @@
     <button id="toggle_map" class="btn btn-City" name="toggle_map">Toggle map</button>
     <br>
     <form  action="/get_all_cities" method="post">
-      <button id="show_all" type="submit" class="btn btn-City" name="">SHOW ALL!</button>
     </form>
   </div>
   <div class="col-xs-4">
     <form action="/get_city_name" method="post">
         <input class="blk_text" type="text" name="city_name" placeholder="search by city"></input>
         <button class="btn btn-City" type="submit">Search!</button>
+        <% if (@selected_city != nil) %>
+          <h4>Click the UFO for sightings report</h4>
+        <% end %>
     </form>
   </div>
   <div class="col-xs-4 query">
@@ -47,7 +49,7 @@
     </div>
   </div>
 <% else %>
-  <h1>Select a city to see reports</h1>
+  <!-- <h1>Select a city to see reports</h1> -->
 <% end %>
 
 <a href='/end'>
